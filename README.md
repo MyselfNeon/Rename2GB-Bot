@@ -111,11 +111,11 @@ status - Check Bot status (Admins Only)
 ```
 <b><i>⪼ Copy all Commands and paste it in <a href='https://t.me/botfather'>BotFather</a> to apply commands.
 
-<h3>Contact Developer</h3>
+<h3><i>Contact Developer 👨‍💻</i></h3>
 
-[![Contact Developer](https://img.shields.io/badge/Contact-Developer-blue?logo=telegram)](https://t.me/MyselfNeon)
-
-[![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-blue?logo=telegram)](https://t.me/neonfiles)
+[![Contact Developer](https://img.shields.io/badge/Contact-Developer-blue?logo=telegram)](https://t.me/MyselfNeon)    
+[![Telegram Channel](https://img.shields.io/badge/Telegram-Main%20Channel-blue?logo=telegram)](https://t.me/neonfiles)  
+**_Join My <a href='https://t.me/neonfiles'>Update Channel</a> For More Update Regarding Repo._**
 
 <h3>Visitors Counts 👀</h3>
 <a href="https://github.com/MyselfNeon/RenameBot-2GB"><img alt="Cute Count" src="https://count.getloli.com/get/@RenameBot-2GB?theme=rule34" /></a>
