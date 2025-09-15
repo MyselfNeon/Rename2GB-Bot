@@ -4,8 +4,22 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceRepl
 from helper.database import jishubotz
 from config import Config, Txt  
 
+# Supported Telegram reactions
+REACTIONS = [
+    "🤝", "😇", "🤗", "😍", "👍", "🎅", "😐", "🥰", "🤩",
+    "😱", "🤣", "😘", "👏", "😛", "😈", "🎉", "⚡️", "🫡",
+    "🤓", "😎", "🏆", "🔥", "🤭", "🌚", "🆒", "👻", "😁"
+]
+
 @Client.on_message(filters.private & filters.command("start"))
 async def start(client, message):
+    # --- Reaction feature added here ---
+    try:
+        await message.react(emoji=random.choice(REACTIONS), big=True)
+    except Exception as e:
+        print(f"Reaction failed: {e}")
+    # -----------------------------------
+
     user = message.from_user
     await jishubotz.add_user(client, message)                
     button = InlineKeyboardMarkup([
@@ -19,6 +33,7 @@ async def start(client, message):
         await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button, quote=True)       
     else:
         await message.reply_text(text=Txt.START_TXT.format(user.mention), reply_markup=button, disable_web_page_preview=True, quote=True)
+
 
 @Client.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
@@ -65,19 +80,11 @@ async def cb_handler(client, query: CallbackQuery):
             await query.message.continue_propagation()
 
 
-
-
-
 @Client.on_message(filters.private & filters.command(["donate", "d"]))
 async def donate(client, message):
-	text = Txt.DONATE_TXT
-	keybord = InlineKeyboardMarkup([
-        			[InlineKeyboardButton("🦋 Aᴅᴍɪɴ",url = "https://t.me/MyselfNeon"), 
-        			InlineKeyboardButton("✖️ Cʟᴏꜱᴇ",callback_data = "close") ]])
-	await message.reply_text(text = text,reply_markup = keybord)
-
-
-
-# Don't Remove Credit 🥺
-# Telegram Channel @NeonFiles
-# Developer @MyselfNeon
+    text = Txt.DONATE_TXT
+    keybord = InlineKeyboardMarkup([
+        [InlineKeyboardButton("🦋 Aᴅᴍɪɴ", url="https://t.me/MyselfNeon"), 
+         InlineKeyboardButton("✖️ Cʟᴏꜱᴇ", callback_data="close")]
+    ])
+    await message.reply_text(text=text, reply_markup=keybord)
