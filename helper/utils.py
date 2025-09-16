@@ -88,14 +88,14 @@ async def send_log(b, u):
         time = curr.strftime("%I:%M:%S %p")
         await b.send_message(
             Config.LOG_CHANNEL,
-            f"<b><u><i>𝖭𝖾𝗐 𝖴𝗌𝖾𝗋 𝖲𝗍𝖺𝗋𝗍𝖾𝖽 𝖳𝗁𝖾 𝖡𝗈𝗍</i></u></b> \n\n"
-            f"<b>𝖴𝗌𝖾𝗋 𝖬𝖾𝗇𝗍𝗂𝗈𝗇</b> : {u.mention}\n"
-            f"<b>𝖴𝗌𝖾𝗋 𝖨𝖣</b> : `{u.id}`\n"
-            f"<b>𝖥𝗂𝗋𝗌𝗍 𝖭𝖺𝗆𝖾</b> : {u.first_name}\n"
-            f"<b>𝖫𝖺𝗌𝗍 𝖭𝖺𝗆𝖾</b> : {u.last_name}\n"
-            f"<b>𝖴𝗌𝖾𝗋 𝖭𝖺𝗆𝖾</b> : @{u.username}\n"
-            f"<b>𝖴𝗌𝖾𝗋 𝖫𝗂𝗇𝗄</b> : <a href='tg://openmessage?user_id={u.id}'>𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾</a>\n\n"
-            f"<b>𝖣𝖺𝗍𝖾</b> : {date}\n<b>𝖳𝗂𝗆𝖾</b> : {time}",
+            f"<b>#𝖭𝖾𝗐𝖴𝗌𝖾𝗋 👤</b> \n\n"
+            f"<b><i>𝖴𝗌𝖾𝗋 𝖬𝖾𝗇𝗍𝗂𝗈𝗇 : {u.mention}</b></i>\n"
+            f"<b><i>𝖴𝗌𝖾𝗋 𝖨𝖣</b> : `{u.id}`</b></i>\n"
+            f"<b><i>𝖥𝗂𝗋𝗌𝗍 𝖭𝖺𝗆e : {u.first_name}</b></i>\n"
+            f"<b><i>𝖫𝖺𝗌𝗍 𝖭𝖺𝗆𝖾 : {u.last_name}</b></i>\n"
+            f"<b><i>𝖴𝗌𝖾𝗋 𝖭𝖺𝗆e : @{u.username}</b></i>\n"
+            f"<b><i>𝖴𝗌𝖾𝗋 𝖫𝗂𝗇𝗄 : <a href='tg://openmessage?user_id={u.id}'>𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾</a></b></i>\n"
+            f"<b><i>𝖣𝖺𝗍𝖾 : {date}\n𝖳𝗂𝗆𝖾 : {time}</b></i>",
         )
 
 
