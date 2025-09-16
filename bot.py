@@ -7,6 +7,7 @@ from aiohttp import web
 from route import web_server
 import pyromod
 import pyrogram.utils
+import asyncio   # ✅ needed for sleep
 
 pyrogram.utils.MIN_CHAT_ID = -999999999999
 pyrogram.utils.MIN_CHANNEL_ID = -1009999999999
@@ -33,16 +34,19 @@ class Bot(Client):
         self.uptime = datetime.now()   # or Config.BOT_UPTIME if you want a fixed value  
 
         if Config.WEBHOOK:
-            web_app = await web_server()   # ✅ correction here
+            web_app = await web_server()   # ✅ await async web_server
             app = web.AppRunner(web_app)   # ✅ pass Application, not coroutine
             await app.setup()       
             await web.TCPSite(app, "0.0.0.0", 8080).start()     
 
         print(f"{me.first_name} Is Started... ✨️")
 
+        # Send admin message & auto-delete after 10 seconds
         for admin_id in Config.ADMIN:
             try:
-                await self.send_message(admin_id, f"**__{me.first_name} Is Started...__ 🚀🚀**")                                
+                msg = await self.send_message(admin_id, "**__Rename Bot 2GB Is Started... 🚀🚀__**")
+                await asyncio.sleep(10)
+                await self.delete_messages(chat_id=admin_id, message_ids=msg.id)
             except:
                 pass
         
