@@ -28,30 +28,37 @@ class Bot(Client):
     async def start(self):
         await super().start()
         me = await self.get_me()
-        self.mention = me.mention
+        self.mention = me.mention if hasattr(me, "mention") else f"@{me.username}"
         self.username = me.username  
-        self.uptime = Config.BOT_UPTIME     
+        self.uptime = datetime.now()   # or Config.BOT_UPTIME if you want a fixed value  
+
         if Config.WEBHOOK:
-            app = web.AppRunner(await web_server())
+            app = web.AppRunner(web_server())  # fixed
             await app.setup()       
             await web.TCPSite(app, "0.0.0.0", 8080).start()     
-        print(f"{me.first_name} Is Started.....✨️")
-        for id in Config.ADMIN:
-            try: await self.send_message(id, f"**{me.first_name} Is Sᴛᴀʀᴛᴇᴅ ... ✨**")                                
-            except: pass
+
+        print(f"{me.first_name} Is Started... ✨️")
+
+        for admin_id in Config.ADMIN:
+            try:
+                await self.send_message(admin_id, f"**__{me.first_name} Is Started...__ 🚀🚀**")                                
+            except:
+                pass
         
         if Config.LOG_CHANNEL:
             try:
                 curr = datetime.now(timezone("Asia/Kolkata"))
                 date = curr.strftime('%d %B, %Y')
                 time = curr.strftime('%I:%M:%S %p')
-                await self.send_message(Config.LOG_CHANNEL, f"**__{me.mention} Is Rᴇsᴛᴀʀᴛᴇᴅ 🌸__**\n\n📅 **__Dᴀᴛᴇ__** : `{date}`\n⏰ **__Tɪᴍᴇ__** : `{time}`\n🌐 **__Tɪᴍᴇᴢᴏɴᴇ__** : `Asia/Kolkata`\n\n🉐 **__Vᴇʀsɪᴏɴ__** : `v{__version__} (**__Lᴀʏᴇʀ__** {layer})`")                                
+                await self.send_message(
+                    Config.LOG_CHANNEL,
+                    f"**__{self.mention} Is Restarted ✅__**\n\n"
+                    f"📅 **__Date : {date}__**\n"
+                    f"⏰ **__Time : {time}__**\n"
+                    f"🌐 **__Timezone : Asia/Kolkata__**\n"
+                    f"🉐 **__Version : v{__version__} Layer{layer}__**"
+                )                                
             except:
-                print("Please Make This Is Admin In Your Log Channel")
+                print("Please Make This Bot Admin In Your Log Channel")
 
 Bot().run()
-
-
-
-
-
