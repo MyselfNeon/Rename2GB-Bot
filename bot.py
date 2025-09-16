@@ -33,7 +33,8 @@ class Bot(Client):
         self.uptime = datetime.now()   # or Config.BOT_UPTIME if you want a fixed value  
 
         if Config.WEBHOOK:
-            app = web.AppRunner(web_server())  # fixed
+            web_app = await web_server()   # ✅ correction here
+            app = web.AppRunner(web_app)   # ✅ pass Application, not coroutine
             await app.setup()       
             await web.TCPSite(app, "0.0.0.0", 8080).start()     
 
