@@ -88,11 +88,10 @@ async def send_log(b, u):
         time = curr.strftime("%I:%M:%S %p")
         await b.send_message(
             Config.LOG_CHANNEL,
-            f"**#𝖭𝖾𝗐𝖴𝗌𝖾𝗋 👤** \n\n"
+            f"**#𝖭𝖾𝗐𝖴𝗌𝖾𝗋 👤** \n"
+            f"**__{self.mention}__**\n\n"
             f"**👤 __User : {u.mention}__**\n"
             f"**🆔 __User ID :__** `{u.id}`\n"
-            f"**📛 __First Name : {u.first_name}__**\n"
-            f"**🏷️ __Last Name : {u.last_name}__**\n"
             f"**🌀 __Username : @{u.username}__**\n"
             f"**📅 __Date : {date}__**\n"
             f"**⏰ __Time : {time}__**",
