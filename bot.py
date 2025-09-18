@@ -60,7 +60,7 @@ class Bot(Client):
                     f"**__{self.mention} Is Restarted ✅__**\n\n"
                     f"📅 **__Date : {date}__**\n"
                     f"⏰ **__Time : {time}__**\n"
-                    f"🌐 **__Timezone : Asia/Kolkata__**\n"
+                    f"🌐 **__Timezone : Asia/Kolkata               __**\n"
                     f"🉐 **__Version : v{__version__} Layer{layer}__**"
                 )                                
             except:
