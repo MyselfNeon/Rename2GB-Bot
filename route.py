@@ -18,14 +18,24 @@ async def root_route_handler(request):
             font-size:4rem; 
             color:#39FF14; 
             text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 40px #39FF14;
-            animation: glow 1.5s infinite alternate;
+            animation: glowFade 2s infinite alternate;
         ">
-            || NeonFiles ||
+            Coded By @MyselfNeon
         </body>
         <style>
-            @keyframes glow {
-                from { text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 40px #39FF14; }
-                to { text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 30px #39FF14, 0 0 60px #39FF14; }
+            @keyframes glowFade {
+                0% {
+                    opacity: 0.6;
+                    text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14, 0 0 15px #39FF14, 0 0 30px #39FF14;
+                }
+                50% {
+                    opacity: 1;
+                    text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 30px #39FF14, 0 0 60px #39FF14;
+                }
+                100% {
+                    opacity: 0.6;
+                    text-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14, 0 0 15px #39FF14, 0 0 30px #39FF14;
+                }
             }
         </style>
         """,
