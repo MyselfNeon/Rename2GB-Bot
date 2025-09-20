@@ -89,12 +89,12 @@ async def send_log(b, u):
         await b.send_message(
             Config.LOG_CHANNEL,
             f"**#𝖭𝖾𝗐𝖴𝗌𝖾𝗋 👤** \n"
-            f"**__@{self.username if self.username else self.mention}__**\n\n"
-            f"**👤 __User : {u.mention}__**\n"
+            f"__@{self.username if self.username else self.mention}__\n\n"
+            f"**👤 __User :__** __{u.mention}__\n"
             f"**🆔 __User ID :__** `{u.id}`\n"
-            f"**🌀 __Username : @{u.username}__**\n"
-            f"**📅 __Date : {date}__**\n"
-            f"**⏰ __Time : {time}__**",
+            f"**🌀 __Username :__** __@{u.username}__\n"
+            f"**📅 __Date :__** __{date}__\n"
+            f"**⏰ __Time :__** __{time}__",
         )
 
 
