@@ -57,7 +57,7 @@ class Bot(Client):
                 time = curr.strftime('%I:%M:%S %p')
                 await self.send_message(
                     Config.LOG_CHANNEL,
-                    f"**__{self.mention} Is Restarted ✅__**\n\n"
+                    f"**⚡ __{self.mention} Restarted__**\n\n"
                     f"📅 **__Date :__** __{date}__\n"
                     f"⏰ **__Time :__** __{time}__\n"
                     f"🌐 **__Timezone :__** __Asia/Kolkata               __\n"
