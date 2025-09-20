@@ -39,7 +39,7 @@ class Bot(Client):
             await app.setup()       
             await web.TCPSite(app, "0.0.0.0", 8080).start()     
 
-        print(f"{me.first_name} Is Started... ✨️")
+        print(f"{me.first_name} Started... ✨️")
 
         # Send admin message & auto-delete after 10 seconds
         for admin_id in Config.ADMIN:
@@ -58,10 +58,10 @@ class Bot(Client):
                 await self.send_message(
                     Config.LOG_CHANNEL,
                     f"**__{self.mention} Is Restarted ✅__**\n\n"
-                    f"📅 **__Date : {date}__**\n"
-                    f"⏰ **__Time : {time}__**\n"
-                    f"🌐 **__Timezone : Asia/Kolkata               __**\n"
-                    f"🉐 **__Version : v{__version__} Layer{layer}__**"
+                    f"📅 **__Date :__** __{date}__\n"
+                    f"⏰ **__Time :__** __{time}__\n"
+                    f"🌐 **__Timezone :__** __Asia/Kolkata               __\n"
+                    f"🉐 **__Version :__** __v{__version__} Layer{layer}__"
                 )                                
             except:
                 print("Please Make This Bot Admin In Your Log Channel")
