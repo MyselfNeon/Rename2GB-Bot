@@ -11,7 +11,7 @@ import asyncio
 import aiohttp
 import logging  # needed for keep-alive logging
 
-from info import KEEP_ALIVE_URL  # ✅ import your URL
+from config import KEEP_ALIVE_URL  # ✅ import your URL
 
 # Fix for invalid peer IDs
 pyrogram.utils.MIN_CHAT_ID = -999999999999
