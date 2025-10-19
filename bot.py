@@ -2,21 +2,24 @@ from datetime import datetime
 from pytz import timezone
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-from config import Config
+from config import Config, KEEP_ALIVE_URL
 from aiohttp import web
 from route import web_server
 import pyromod
 import pyrogram.utils
 import asyncio
 import aiohttp
-import logging  # needed for keep-alive logging
-
-from config import KEEP_ALIVE_URL  # ✅ import your URL
+import logging
 
 # Fix for invalid peer IDs
 pyrogram.utils.MIN_CHAT_ID = -999999999999
 pyrogram.utils.MIN_CHANNEL_ID = -1009999999999
 
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+)
 
 async def keep_alive():
     """Send a request every 300 seconds to keep the bot alive."""
@@ -43,25 +46,25 @@ class Bot(Client):
             sleep_threshold=15,
         )
 
-    async def start(self):
-        await super().start()
+    async def on_startup(self):
         me = await self.get_me()
         self.mention = me.mention if hasattr(me, "mention") else f"@{me.username}"
         self.username = me.username
         self.uptime = datetime.now()
 
-        # Start keep-alive task
+        # Start keep-alive in background
         asyncio.create_task(keep_alive())
 
+        # Start web server if needed
         if Config.WEBHOOK:
-            web_app = await web_server()   # await async web_server
-            app = web.AppRunner(web_app)   # pass Application, not coroutine
-            await app.setup()       
-            await web.TCPSite(app, "0.0.0.0", 8080).start()
+            web_app = await web_server()
+            app_runner = web.AppRunner(web_app)
+            await app_runner.setup()
+            await web.TCPSite(app_runner, "0.0.0.0", 8080).start()
 
         print(f"{me.first_name} Started... ✨️")
 
-        # Send admin message & auto-delete after 10 seconds
+        # Notify admins
         for admin_id in Config.ADMIN:
             try:
                 msg = await self.send_message(admin_id, "**__Rename Bot 2GB Is Started... 🚀🚀__**")
@@ -88,4 +91,14 @@ class Bot(Client):
                 print("Please Make This Bot Admin In Your Log Channel")
 
 
-Bot().run()
+async def main():
+    bot = Bot()
+    await bot.start()          # start bot
+    await bot.on_startup()     # custom startup tasks
+    print("Bot is running...")
+    await bot.idle()           # keep it alive
+    await bot.stop()           # cleanup on exit
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
