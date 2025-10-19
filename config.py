@@ -25,6 +25,7 @@ class Config(object):
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
 
+SCHEDULE_RESTART = False  # or True if you want 24h scheduled restart
 
 # Keep-Alive URL
 KEEP_ALIVE_URL = os.environ.get("KEEP_ALIVE_URL", "https://rename2gb-bot-82je.onrender.com/")  # <-- Add this line
