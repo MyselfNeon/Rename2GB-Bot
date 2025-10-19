@@ -27,7 +27,7 @@ class Config(object):
 
 
 # Keep-Alive URL
-KEEP_ALIVE_URL = environ.get("KEEP_ALIVE_URL", "https://rename2gb-bot-82je.onrender.com/")  # <-- Add this line
+KEEP_ALIVE_URL = os.environ.get("KEEP_ALIVE_URL", "https://rename2gb-bot-82je.onrender.com/")  # <-- Add this line
 
 class Txt(object):
     # part of text configuration
