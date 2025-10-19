@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import os
+import sys
 from datetime import datetime
 from pytz import timezone
 from pyrogram import Client, __version__
@@ -10,7 +11,7 @@ import pyrogram.utils
 import aiohttp
 from aiohttp import web
 
-from config import Config, KEEP_ALIVE_URL
+from config import Config
 from route import web_server  # your async web_server
 
 # Fix for invalid peer IDs
@@ -24,11 +25,11 @@ logging.basicConfig(
 )
 
 # ---------------------- SAFE TASK WRAPPER ----------------------
-async def safe_task(coro, name="Task"):
+async def safe_task(coro_func, name="Task"):
     """Run a long-running task safely with exception handling."""
     while True:
         try:
-            await coro()
+            await coro_func()
         except Exception as e:
             logging.error(f"{name} failed: {e}")
             await asyncio.sleep(5)  # prevent crash loops
@@ -39,7 +40,7 @@ async def keep_alive():
     async with aiohttp.ClientSession() as session:
         while True:
             try:
-                await session.get(KEEP_ALIVE_URL)
+                await session.get(Config.KEEP_ALIVE_URL)
                 logging.info("Sent keep-alive request.")
             except Exception as e:
                 logging.error(f"Keep-alive request failed: {e}")
@@ -109,13 +110,13 @@ class Bot(Client):
 async def scheduled_restart(bot: Bot):
     """Restart the bot once every 24 hours."""
     while True:
-        await asyncio.sleep(24*60*60)  # 24 hours
+        await asyncio.sleep(24 * 60 * 60)  # 24 hours
         logging.info("Scheduled bot restart initiated...")
         if Config.LOG_CHANNEL:
             try:
                 await bot.send_message(Config.LOG_CHANNEL, "🔄 Bot restarting (scheduled)...")
-            except:
-                pass
+            except Exception as e:
+                logging.warning(f"Failed to send restart message: {e}")
         os.execl(sys.executable, sys.executable, *sys.argv)
 
 # ---------------------- MAIN ----------------------
