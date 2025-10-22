@@ -15,7 +15,7 @@ class Config(object):
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
     # --- Database Config ---
-    DB_NAME = os.environ.get("DB_NAME", "MyselfNeon")
+    DB_NAME = os.environ.get("DB_NAME", "RenameNeon")
     DB_URL = os.environ.get("DB_URL", "")
 
     # --- Bot Info ---
