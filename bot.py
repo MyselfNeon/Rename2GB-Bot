@@ -36,7 +36,7 @@ async def safe_task(coro_func, name="Task"):
 
 # ---------------------- KEEP-ALIVE TASK ----------------------
 async def keep_alive():
-    """Send a GET request to KEEP_ALIVE_URL every 300 seconds."""
+    """Send a GET request to KEEP_ALIVE_URL every 100 seconds."""
     async with aiohttp.ClientSession() as session:
         while True:
             try:
@@ -44,7 +44,7 @@ async def keep_alive():
                 logging.info("Sent keep-alive request.")
             except Exception as e:
                 logging.error(f"Keep-alive request failed: {e}")
-            await asyncio.sleep(300)
+            await asyncio.sleep(100)
 
 # ---------------------- BOT CLASS ----------------------
 class Bot(Client):
