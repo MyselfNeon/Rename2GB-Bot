@@ -1,5 +1,22 @@
-FROM python:3.10
+# --- Base image ---
+FROM python:3.10-bullseye
+
+# --- Set working directory ---
 WORKDIR /app
-COPY . /app/
-RUN pip3 install -r requirements.txt
+
+# --- Copy dependency list first for caching ---
+COPY requirements.txt .
+
+# --- Install dependencies ---
+RUN pip install --no-cache-dir -r requirements.txt
+
+# --- Copy the rest of the application ---
+COPY . .
+
+# --- Default command ---
 CMD ["python3", "bot.py"]
+
+
+# MyselfNeon
+# Don't Remove Credit 🥺
+# Telegram Channel @NeonFiles

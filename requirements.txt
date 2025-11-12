@@ -1,9 +1,14 @@
+# --- Telegram & Bot Frameworks ---
 pyrogram
+pyromod
 TgCrypto
-motor
+
+# --- Asynchronous & Networking ---
+aiohttp
 dnspython
+
+# --- Database & Utilities ---
+motor
+pytz
 hachoir
 Pillow
-aiohttp
-pytz
-pyromod

@@ -1,3 +1,14 @@
+# ---------------------------------------------------
+# File Name: Config.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 import os
 import time
 import re
@@ -108,3 +119,8 @@ class Txt(object):
         "<b><i>🛍 UPI ID:</i></b> <code>NeonAn23@axl</code>\n\n"
         "<b><i>💬 For Any Help Message @Talk2NeonBot</i></b>"
     )
+
+
+# MyselfNeon
+# Don't Remove Credit 🥺
+# Telegram Channel @NeonFiles
