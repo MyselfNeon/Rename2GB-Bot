@@ -1,3 +1,14 @@
+# ---------------------------------------------------
+# File Name: Utils.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 import math
 import time
 import re
@@ -126,6 +137,7 @@ def makedir(name: str):
     if os.path.exists(name):
         shutil.rmtree(name)
     os.mkdir(name)
+
 
 # Dont remove Credits
 # Developer Telegram @MyselfNeon

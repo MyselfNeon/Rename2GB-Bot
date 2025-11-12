@@ -1,3 +1,14 @@
+# ---------------------------------------------------
+# File Name: Database.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 import motor.motor_asyncio
 from config import Config
 from .utils import send_log
@@ -117,3 +128,8 @@ class Database:
 
 # Global DB instance
 jishubotz = Database(Config.DB_URL, Config.DB_NAME)
+
+
+# MyselfNeon
+# Don't Remove Credit 🥺
+# Telegram Channel @NeonFiles

@@ -1,3 +1,14 @@
+# ---------------------------------------------------
+# File Name: Ffmpeg.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 import time
 import os
 import asyncio
@@ -102,6 +113,7 @@ async def add_metadata(input_path, output_path, metadata, ms: Message):
         print(f"Error occurred while adding metadata: {str(e)}")
         await ms.edit("<i><b>An Error Occurred While Adding Metadata To Your File ❌</b></i>")
         return None
+        
 
 # Dont remove Credits
 # Developer Telegram @MyselfNeon
