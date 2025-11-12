@@ -1,10 +1,20 @@
+# ---------------------------------------------------
+# File Name: Force_Subs.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant
 
 from config import Config
 from helper.database import jishubotz
-
 
 # ======================= Force Sub Helper ======================= #
 
@@ -25,7 +35,6 @@ async def not_subscribed(_, client, message):
         pass
 
     return True
-
 
 # ======================= Force Sub Handler ======================= #
 

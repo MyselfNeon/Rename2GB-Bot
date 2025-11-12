@@ -1,3 +1,14 @@
+# ---------------------------------------------------
+# File Name: Start & Cb.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 import random
 from pyrogram import Client, filters
 from pyrogram.types import (
@@ -8,7 +19,6 @@ from pyrogram.types import (
 )
 from helper.database import jishubotz
 from config import Config, Txt  
-
 
 # ======================= START ======================= #
 
@@ -43,7 +53,6 @@ async def start(client, message):
             reply_markup=buttons, 
             disable_web_page_preview=True
         )
-
 
 # ======================= CALLBACK HANDLER ======================= #
 
@@ -107,7 +116,6 @@ async def cb_handler(client, query: CallbackQuery):
         except:
             pass
         await query.answer()
-
 
 # ======================= DONATE ======================= #
 

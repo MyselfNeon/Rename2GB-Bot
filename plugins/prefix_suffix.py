@@ -1,6 +1,16 @@
+# ---------------------------------------------------
+# File Name: Prefix_Suffix.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 from pyrogram import Client, filters, enums
 from helper.database import jishubotz
-
 
 # ======================= PREFIX ======================= #
 
@@ -18,7 +28,6 @@ async def add_prefix(client, message):
     await jishubotz.set_prefix(message.from_user.id, prefix)
     await ms.edit("**Prefix Saved Successfully ✅**")
 
-
 @Client.on_message(filters.private & filters.command('del_prefix'))
 async def delete_prefix(client, message):
     """Delete the saved prefix."""
@@ -32,7 +41,6 @@ async def delete_prefix(client, message):
     await jishubotz.set_prefix(message.from_user.id, None)
     await ms.edit("**Prefix Deleted Successfully 🗑️**")
 
-
 @Client.on_message(filters.private & filters.command('see_prefix'))
 async def see_prefix(client, message):
     """View the current saved prefix."""
@@ -44,7 +52,6 @@ async def see_prefix(client, message):
         await ms.edit(f"**Your Prefix :-**\n\n`{prefix}`")
     else:
         await ms.edit("**You Don't Have Any Prefix ❌**")
-
 
 # ======================= SUFFIX ======================= #
 
@@ -62,7 +69,6 @@ async def add_suffix(client, message):
     await jishubotz.set_suffix(message.from_user.id, suffix)
     await ms.edit("**Suffix Saved Successfully ✅**")
 
-
 @Client.on_message(filters.private & filters.command('del_suffix'))
 async def delete_suffix(client, message):
     """Delete the saved suffix."""
@@ -75,7 +81,6 @@ async def delete_suffix(client, message):
 
     await jishubotz.set_suffix(message.from_user.id, None)
     await ms.edit("**Suffix Deleted Successfully ✅**")
-
 
 @Client.on_message(filters.private & filters.command('see_suffix'))
 async def see_suffix(client, message):

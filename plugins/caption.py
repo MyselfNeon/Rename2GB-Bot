@@ -1,6 +1,16 @@
+# ---------------------------------------------------
+# File Name: Caption.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 from pyrogram import Client, filters
 from helper.database import jishubotz
-
 
 # ======================= Set Caption ======================= #
 
@@ -18,7 +28,6 @@ async def add_caption(client, message):
     await jishubotz.set_caption(message.from_user.id, caption=caption)
     await message.reply_text("**Your Caption Successfully Added ✅**")
 
-
 # ======================= Delete Caption ======================= #
 
 @Client.on_message(filters.private & filters.command(["del_caption", "dc"]))
@@ -29,7 +38,6 @@ async def delete_caption(client, message):
 
     await jishubotz.set_caption(message.from_user.id, caption=None)
     await message.reply_text("**Your Caption Successfully Deleted 🗑️**")
-
 
 # ======================= View Caption ======================= #
 

@@ -1,3 +1,14 @@
+# ---------------------------------------------------
+# File Name: Admin_Panel.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 import os
 import sys
 import time
@@ -136,6 +147,7 @@ async def send_msg(user_id, message):
     except Exception as e:
         logger.error(f"{user_id} : {e}")
         return 500
+
 
  # Dont remove Credits
 # Developer Telegram @MyselfNeon

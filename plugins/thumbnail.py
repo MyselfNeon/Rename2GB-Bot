@@ -1,6 +1,16 @@
+# ---------------------------------------------------
+# File Name: Thumbnail.py
+# Author: NeonAnurag
+# GitHub: https://github.com/MyselfNeon/
+# Telegram: https://t.me/MyelfNeon
+# Created: 2025-11-21
+# Last Modified: 2025-11-22
+# Version: Latest
+# License: MIT License
+# ---------------------------------------------------
+
 from pyrogram import Client, filters
 from helper.database import jishubotz
-
 
 # ======================= VIEW THUMB ======================= #
 
@@ -16,7 +26,6 @@ async def view_thumb(client, message):
             "<b><i>Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Aɴʏ Tʜᴜᴍʙɴᴀɪʟ ❌</i></b>"
         )
 
-
 # ======================= DELETE THUMB ======================= #
 
 @Client.on_message(filters.private & filters.command(['del_thumb', 'delthumb']))
@@ -26,7 +35,6 @@ async def remove_thumb(client, message):
     await message.reply_text(
         "<b><i>Tʜᴜᴍʙɴᴀɪʟ Dᴇʟᴇᴛᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ 🗑️</i></b>"
     )
-
 
 # ======================= SAVE THUMB ======================= #
 
